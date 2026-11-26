@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Area Grid</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main>
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M4 4h16v16H4zM12 4v16M4 12h16" />
+            </svg>
+          </span>
+          <div class="brand-copy">
+            <h1>Area Grid</h1>
+            <span id="siteName" class="site-name">Current website</span>
+          </div>
+        </div>
+        <label class="switch" aria-label="Show grid">
+          <input id="gridVisible" type="checkbox">
+          <span class="switch-track" aria-hidden="true"></span>
+        </label>
+      </header>
+
+      <p id="status" class="status" role="status"></p>
+
+      <div id="controls" class="settings">
+        <section class="settings-card" aria-labelledby="linesHeading">
+          <div class="section-heading">
+            <div>
+              <h2 id="linesHeading">Grid lines</h2>
+              <p>Choose line counts or a fixed pixel gap</p>
+            </div>
+            <span class="section-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8m0-12.8L5.6 18.4" />
+              </svg>
+            </span>
+          </div>
+
+          <div class="spacing-mode" role="group" aria-label="Grid spacing mode">
+            <button id="countMode" class="mode-button" type="button" aria-pressed="true">By count</button>
+            <button id="gapMode" class="mode-button" type="button" aria-pressed="false">By gap</button>
+          </div>
+
+          <div class="control">
+            <label for="horizontalLines">Horizontal lines <output id="horizontalValue">5</output></label>
+            <input id="horizontalLines" type="range" min="0" max="30" step="1">
+          </div>
+          <div class="control">
+            <label for="verticalLines">Vertical lines <output id="verticalValue">5</output></label>
+            <input id="verticalLines" type="range" min="0" max="30" step="1">
+          </div>
+          <div class="control">
+            <label for="gap">Gap between lines <output id="gapValue">50 px</output></label>
+            <input id="gap" type="range" min="10" max="200" step="5">
+          </div>
+          <div class="control">
+            <label for="opacity">Opacity <output id="opacityValue">60%</output></label>
+            <input id="opacity" type="range" min="0" max="100" step="1">
+          </div>
+          <div class="control">
+            <label for="thickness">Line thickness <output id="thicknessValue">1 px</output></label>
+            <input id="thickness" type="range" min="0.5" max="5" step="0.5">
+          </div>
+          <div class="color-control">
+            <label for="gridColor">Line colour</label>
+            <input id="gridColor" type="color" aria-label="Grid line colour">
+          </div>
+        </section>
+
+        <section class="settings-card boundary-card" aria-labelledby="boundaryHeading">
+          <div class="section-heading">
+            <div>
+              <h2 id="boundaryHeading">Area boundary</h2>
+              <p>Outline the edge of your grid</p>
+            </div>
+            <label class="switch small-switch" aria-label="Show area boundary">
+              <input id="boundaryVisible" type="checkbox">
+              <span class="switch-track" aria-hidden="true"></span>
+            </label>
+          </div>
+          <div class="boundary-options">
+            <div class="color-control">
+              <label for="boundaryColor">Colour</label>
+              <input id="boundaryColor" type="color" aria-label="Boundary colour">
+            </div>
+            <div class="control">
+              <label for="boundaryThickness">Thickness <output id="boundaryThicknessValue">1 px</output></label>
+              <input id="boundaryThickness" type="range" min="0.5" max="5" step="0.5">
+            </div>
+          </div>
+        </section>
+
+        <button id="drawArea" class="draw-button" type="button">
+          <span class="draw-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 5v14M5 12h14" />
+            </svg>
+          </span>
+          <span class="button-copy">
+            <strong id="drawAreaLabel">Draw area</strong>
+            <small id="drawAreaHint">Click and drag on the page</small>
+          </span>
+          <span class="button-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M5 12h14m-6-6 6 6-6 6" />
+            </svg>
+          </span>
+        </button>
+      </div>
+    </main>
+    <script src="../shared/defaults.js"></script>
+    <script src="../shared/storage.js"></script>
+    <script src="../shared/messages.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>
